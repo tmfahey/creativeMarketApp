@@ -38,6 +38,18 @@ Run the database migrations (**Set the database connection in .env before migrat
 
     php artisan migrate
 
+Install npm packages for building the vue application
+
+    npm install
+
+If modifications are ever made to the vue application, it must be rebuilt with
+
+    npm build
+
+Alternatively you can run the following command in a seperate terminal to rebuild the vue application whenever changes occur
+
+    npm run watch
+
 Start the local development server
 
     php artisan serve
@@ -51,7 +63,14 @@ You can now access the server at http://localhost:8000
     composer install
     cp .env.example .env
     php artisan key:generate
-    
+    npm install
+    npm build
+
+**TL;DR commands for building Vue application**    
+
+    npm install
+    npm build
+
 **Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
 
     php artisan migrate
