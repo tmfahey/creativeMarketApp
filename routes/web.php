@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'freeTrial@displayForm')->name('displayForm');
+Route::post('submitForm', 'freeTrial@submit')->name('submit');
