@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class FreeTrialTest extends TestCase
+class FreeTrialFormTest extends TestCase
 {
 
     /**
