@@ -28,21 +28,20 @@ class freeTrial extends Controller
     public function submit(Request $request)
     {
 
-    	//ensure we have a valid email
-    	$validatedData = $request->validate([
-		    'email'=>'required|email',
-		]);
+        //ensure we have a valid email
+        $validatedData = $request->validate([
+            'email'=>'required|email',
+        ]);
         // Must not already exist in the `email` column of `users` table
         $uniqueValidator = Validator::make($validatedData, [
             'email' => 'required|email|unique:users'
         ]);
-		if ($uniqueValidator->fails()) {
-			//Email already in database, move view
-		    return ['emailExists'=>True];
-		}
-		else {
-		    //Email doesn't exist, redirect to creativemarket signup page
-		    return ['emailExists'=>False];
-		}
+        if ($uniqueValidator->fails()) {
+            //Email already in database, move view
+            return ['emailExists'=>true];
+        } else {
+            //Email doesn't exist, redirect to creativemarket signup page
+            return ['emailExists'=>false];
+        }
     }
 }

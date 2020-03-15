@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class freeTrial extends TestCase
+class FreeTrialTest extends TestCase
 {
 
     /**
@@ -25,7 +25,8 @@ class freeTrial extends TestCase
      *
      * @return void
      */
-    public function testExistingUser(){
+    public function testExistingUser()
+    {
         Artisan::call('migrate');
         $users = factory('App\User')->create();
         $response = $this->post('/submitForm', [
@@ -43,7 +44,8 @@ class freeTrial extends TestCase
      *
      * @return void
      */
-    public function testNonexistingUser(){
+    public function testNonexistingUser()
+    {
         Artisan::call('migrate');
         $users = factory('App\User')->create();
         $response = $this->post('/submitForm', [
@@ -61,7 +63,8 @@ class freeTrial extends TestCase
      *
      * @return void
      */
-    public function testInvalidEmails(){
+    public function testInvalidEmails()
+    {
         Artisan::call('migrate');
         $response = $this->json('POST', '/submitForm', ['email' => 'Sally']);
         $response->assertStatus(422);
@@ -73,5 +76,4 @@ class freeTrial extends TestCase
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['email']);
     }
-
 }
