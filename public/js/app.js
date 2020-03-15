@@ -1908,6 +1908,12 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 //
 //
 //
@@ -1933,16 +1939,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+var Errors = /*#__PURE__*/function () {
+  function Errors() {
+    _classCallCheck(this, Errors);
+
+    this.errors = {};
+  }
+
+  _createClass(Errors, [{
+    key: "get",
+    value: function get(field) {
+      if (this.errors[field]) {
+        return this.errors[field][0];
+      }
+    }
+  }, {
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+  }, {
+    key: "set",
+    value: function set(errors) {
+      this.errors = errors;
+    }
+  }, {
+    key: "clear",
+    value: function clear(field) {
+      delete this.errors[field];
+    }
+  }, {
+    key: "any",
+    value: function any() {
+      return Object.keys(this.errors).length > 0;
+    }
+  }]);
+
+  return Errors;
+}();
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       email: '',
+      errors: new Errors(),
       showForm: true
     };
   },
   methods: {
     onSubmit: function onSubmit() {
-      axios.post('/submitForm', this.$data).then(this.onSuccess)["catch"]();
+      var _this = this;
+
+      axios.post('/submitForm', this.$data).then(this.onSuccess)["catch"](function (error) {
+        return _this.errors.set(error.response.data.errors);
+      });
     },
     onSuccess: function onSuccess(response) {
       if (response.data['emailExists']) {
@@ -37342,6 +37393,9 @@ var render = function() {
                       submit: function($event) {
                         $event.preventDefault()
                         return _vm.onSubmit($event)
+                      },
+                      keydown: function($event) {
+                        return _vm.errors.clear($event.target.name)
                       }
                     }
                   },
@@ -37378,14 +37432,24 @@ var render = function() {
                             _vm.email = $event.target.value
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _vm.errors.has("email")
+                        ? _c("small", {
+                            staticClass: "text-danger",
+                            attrs: { id: "emailHelp" },
+                            domProps: {
+                              textContent: _vm._s(_vm.errors.get("email"))
+                            }
+                          })
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass: "btn btn-primary text-uppercase",
-                        attrs: { type: "submit" }
+                        attrs: { type: "submit", disabled: _vm.errors.any() }
                       },
                       [_vm._v("Start your free trial")]
                     )
@@ -37402,7 +37466,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-primary text-uppercase",
-                    attrs: { type: "submit" }
+                    attrs: { type: "submit", disabled: _vm.errors.any() }
                   },
                   [_vm._v("Explore our catalog")]
                 )
