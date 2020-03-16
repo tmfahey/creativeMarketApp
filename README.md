@@ -96,7 +96,8 @@ Run the database seeder and you're done
 
 Automatic tests have been written for this application and can be ran with phpunit when in the root directory:
 
-- Run tests with: `phpunit` aka `vendor/bin/phpunit`
+- Run laravel tests with: `phpunit` aka `vendor/bin/phpunit`
+- Run vue tests with: `npm test`
 
 ## Environment variables
 
