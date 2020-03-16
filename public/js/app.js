@@ -1940,6 +1940,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var Errors = /*#__PURE__*/function () {
   function Errors() {
     _classCallCheck(this, Errors);
@@ -2001,6 +2020,9 @@ var Errors = /*#__PURE__*/function () {
       } else {
         window.location.assign("https://creativemarket.com/sign-up");
       }
+    },
+    goToCatalog: function goToCatalog() {
+      window.location.assign("https://creativemarket.com/tags/product-catalog");
     }
   }
 });
@@ -37377,96 +37399,109 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container blobs" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "col-xl-4 col-lg-5 col-md-6 col-sm-8" }, [
+        _c("div", { staticClass: "card shadow p-3 mb-5 bg-white rounded" }, [
           _vm.showForm
-            ? _c("div", { staticClass: "card-body" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "form",
-                  {
-                    attrs: { method: "post", action: "/submit" },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.onSubmit($event)
-                      },
-                      keydown: function($event) {
-                        return _vm.errors.clear($event.target.name)
-                      }
+            ? _c(
+                "form",
+                {
+                  attrs: { method: "post", action: "/submit" },
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.onSubmit($event)
+                    },
+                    keydown: function($event) {
+                      return _vm.errors.clear($event.target.name)
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "exampleFormControlInput1" } },
-                        [_vm._v("Email address")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.email,
-                            expression: "email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "email",
-                          id: "email",
-                          name: "email",
-                          placeholder: "name@example.com"
-                        },
-                        domProps: { value: _vm.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.email = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.errors.has("email")
-                        ? _c("small", {
-                            staticClass: "text-danger",
-                            attrs: { id: "emailHelp" },
-                            domProps: {
-                              textContent: _vm._s(_vm.errors.get("email"))
-                            }
-                          })
-                        : _vm._e()
-                    ]),
+                  }
+                },
+                [
+                  _c("div", { staticClass: "card-body pb-2" }, [
+                    _vm._m(2),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary text-uppercase",
-                        attrs: { type: "submit", disabled: _vm.errors.any() }
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.email,
+                          expression: "email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        id: "email",
+                        name: "email",
+                        placeholder: "Enter your Email Address",
+                        required: ""
                       },
-                      [_vm._v("Start your free trial")]
-                    )
-                  ]
-                )
+                      domProps: { value: _vm.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.email = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.errors.has("email")
+                      ? _c("small", {
+                          staticClass: "text-danger",
+                          attrs: { id: "emailHelp" },
+                          domProps: {
+                            textContent: _vm._s(_vm.errors.get("email"))
+                          }
+                        })
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "card-body text-center pb-0 pt-1" },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-primary text-center form-control trial-button",
+                          attrs: { type: "submit", disabled: _vm.errors.any() }
+                        },
+                        [_vm._v("Start your free trial")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.showForm
+            ? _c("div", { staticClass: "card-body text-center pb-0" }, [
+                _vm._m(5)
               ])
             : _vm._e(),
           _vm._v(" "),
           !_vm.showForm
-            ? _c("div", { staticClass: "card-body" }, [
-                _vm._m(1),
-                _vm._v(" "),
+            ? _c("div", { staticClass: "card-body text-center " }, [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-primary text-uppercase",
-                    attrs: { type: "submit", disabled: _vm.errors.any() }
+                    staticClass:
+                      "btn btn-primary text-center form-control trial-button",
+                    on: { click: _vm.goToCatalog }
                   },
                   [_vm._v("Explore our catalog")]
                 )
@@ -37482,7 +37517,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center text-center" },
+      [
+        _c("div", { staticClass: "col-md-8 mt-5" }, [
+          _c("h1", [_vm._v("Get 3 free downloads!")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row justify-content-center text-center" },
+      [
+        _c("div", { staticClass: "col-xl-8 col-lg-8 col-md-10 mb-3" }, [
+          _c("h6", { staticClass: "text-muted" }, [
+            _vm._v("Start your "),
+            _c("strong", [_vm._v("7-day trial")]),
+            _vm._v(
+              " to access thousands of curated photos, fonts, graphics and more to deliver quality designs faster."
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h6", { staticClass: "card-title text-center" }, [
       _vm._v("Get "),
       _c("strong", [_vm._v("3 free downloads")]),
       _vm._v(" when you start your free trial today.")
@@ -37492,7 +37561,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h5", { staticClass: "card-title" }, [
+    return _c("ul", { staticClass: "custom-bullet checkmark pb-2" }, [
+      _c("li", [_vm._v("Get access to our full Pro catalog")]),
+      _vm._v(" "),
+      _c("li", [_vm._v("Cancel anytime, risk free")]),
+      _vm._v(" "),
+      _c("li", [_vm._v("7 days free")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body text-center" }, [
+      _c("small", { staticClass: "text-muted sub-card-text" }, [
+        _vm._v(
+          "The free trial is for new members only. All assets downloaded during the free trial period are covered by a basic license."
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h6", { staticClass: "card-title" }, [
       _vm._v("Unfortunately, the free trial is for "),
       _c("strong", [_vm._v("new members only")]),
       _vm._v(". It looks like you already have a Creative Market account.")
