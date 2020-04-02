@@ -4,7 +4,7 @@
 
 ----------
 
-## About This Application
+## About Application
 
 This application utilizes Laravel and Vue to generate a free trial request form. The form allows users to submit their email to get access to a free trial. The logic for providing this access is not implemented; however, this app does check if the email exists for a user in the database used. If an email exists in the database the user will be displayed a page stating this information. If not, the user will be directed to the Creative Market signup page - https://creativemarket.com/sign-up
 
