@@ -1,8 +1,5 @@
 # Creative Market Example Free Trial Application
 
-> ### Laravel codebase that allows a free trial submission process as described at https://gist.github.com/joshuaccarroll/4cc9bf49dd0e0ac16eacdb81fcbd0d10
-
-----------
 
 ## About This Application
 
