@@ -1,4 +1,4 @@
-# Creative Market Example Free Trial Application
+ Creative Market Example Free Trial Application
 
 
 ## About This Application
